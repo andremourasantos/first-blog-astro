@@ -1,25 +1,26 @@
 ---
-import Header from "../components/Header.astro";
+import BaseLayout from "./BaseLayout.astro";
 import "../styles/global.css";
 
 const { frontmatter } = Astro.props;
 ---
-<Header />
 
-<main>
-  <section id="details">
-    <img src={frontmatter.image.url} alt={frontmatter.image.alt}>
-    <h1>{frontmatter.title}</h1>
-    <p>{frontmatter.description}</p>
-    <div>
-      <p>Written by {frontmatter.author}</p>
-      <p>Published in {frontmatter.pubDate}</p>
-    </div>
-  </section>
-  <article>
-    <slot />
-  </article>
-</main>
+<BaseLayout pageTitle={frontmatter.title} showPageTitle={false}>
+  <main>
+    <section id="details">
+      <img src={frontmatter.image.url} alt={frontmatter.image.alt}>
+      <h1>{frontmatter.title}</h1>
+      <p>{frontmatter.description}</p>
+      <div>
+        <p>Written by {frontmatter.author}</p>
+        <p>Published in {frontmatter.pubDate}</p>
+      </div>
+    </section>
+    <article>
+      <slot />
+    </article>
+  </main>
+</BaseLayout>
 
 <style>
   main {
