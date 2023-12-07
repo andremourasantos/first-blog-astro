@@ -16,7 +16,7 @@ const {imageUrl, imageAlt, title, description, pubDate, postUrl} = Astro.props a
     <p>{description}</p>
     <p>{pubDate}</p>
   </div>
-  <a href={postUrl}>Read more...</a>
+  <a href={`/blog/${postUrl}`}>Read more...</a>
 </li>
 
 <style>
