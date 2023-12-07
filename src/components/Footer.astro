@@ -1,0 +1,22 @@
+---
+import Social from './Social.astro';
+
+const platforms = [["GitHub", "https://github.com/andremourasantos/"], ["LinkedIn", "https://linkedin.com/in/andremourasantos/"], ["Website", "https://andremourasantos.com.br"]];
+---
+
+<footer>
+  <p>Know me more:</p>
+  {
+    platforms.map(platform => <Social platformName={platform[0]} url={platform[1]}/>)
+  }
+</footer>
+
+<style>
+  footer {
+    width: 100%;
+    background-color: #00000020;
+    border-radius: 16px;
+    color: black;
+    padding: 16px;
+  }
+</style>

@@ -1,0 +1,41 @@
+---
+import NavigationHamburguer from "./NavigationHamburguer.astro";
+---
+<nav>
+  <a href="/">Home</a>
+  <a href="/about/">About</a>
+  <a href="/blog/">Blog</a>
+
+  <NavigationHamburguer/>
+</nav>
+
+<style>
+  nav {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+  }
+
+  a {
+    background-color: #e5e5e5;
+    padding: 8px 16px;
+    border-radius: 100px;
+    text-decoration: none;
+    box-shadow: 5px 5px 5px #00000020;
+    color: black;
+  }
+
+  a:hover, a:active, a:focus {
+    background-color: #F5F5F5;
+  }
+
+  @media screen and (max-width: 425px) {
+    a {
+      display: none;
+    }
+
+    a.show {
+      display: block !important;
+    }
+  }
+</style>

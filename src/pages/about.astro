@@ -1,4 +1,8 @@
 ---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
 const pageTitle = "About Me";
 
 const identity = {
@@ -13,6 +17,9 @@ const skills:string[] = ["HTML", "CSS", "JavaScript", "Vue", "Astro"];
 const happy = true;
 const finished = true;
 const goal = 3;
+
+const skillBcColor = "#F5F5F5";
+const fontFamily = "Arial"
 ---
 
 <html lang="en">
@@ -22,11 +29,33 @@ const goal = 3;
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageTitle}</title>
+
+    <style define:vars={{skillBcColor, fontFamily}}>
+      * {
+        font-family: var(--fontFamily);
+      }
+
+      h1 {
+        color: purple;
+        font-size: 4rem;
+      }
+
+      ul:has(li.skill) {
+        display: flex;
+        flex-direction: flow;
+        gap: 8px;
+        list-style-type: none;
+      }
+
+      li.skill {
+        background-color: var(--skillBcColor);
+        padding: 4px 8px;
+        border-radius: 8px;
+      }
+    </style>
 	</head>
 	<body>
-    <a href="/">Home</a>
-    <a href="/about/">About</a>
-    <a href="/blog/">Blog</a>
+    <Header />
     
     <h1>{pageTitle}</h1>
     <h2>... and my new Astro site!</h2>
@@ -52,7 +81,9 @@ const goal = 3;
     </ul>
     <p>My skills are:</p>
     <ul>
-      {skills.map((skill => <li>{skill}</li>))}
+      {skills.map((skill => <li class="skill">{skill}</li>))}
     </ul>
+
+    <Footer />
   </body>
 </html>
