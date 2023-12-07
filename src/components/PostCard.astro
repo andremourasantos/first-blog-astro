@@ -1,0 +1,39 @@
+---
+const {imageUrl, imageAlt, title, description, pubDate, postUrl} = Astro.props as {
+  imageUrl: string,
+  imageAlt: string,
+  title: string,
+  description: string,
+  pubDate: string,
+  postUrl: string
+}
+---
+
+<li>
+  <img src={imageUrl} alt={imageAlt}>
+  <div class="details">
+    <h2>{title}</h2>
+    <p>{description}</p>
+    <p>{pubDate}</p>
+  </div>
+  <a href={postUrl}>Read more...</a>
+</li>
+
+<style>
+  li {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    border-radius: 16px;
+    padding: 16px;
+    background-color: bisque;
+    width: 300px;
+    height: fit-content;
+  }
+
+  li img {
+    border-radius: 8px;
+    width: 100%;
+    height: fit-content;
+  }
+</style>
