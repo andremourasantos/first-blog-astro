@@ -1,9 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Greetings from '../components/Greetings.vue';
 
 const pageTitle:string = "My first Astro Project";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
   <h2>My awesome blog subtitle</h2>
+  <Greetings client:load/>
 </BaseLayout>
